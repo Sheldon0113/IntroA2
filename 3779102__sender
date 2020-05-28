@@ -1,1 +1,16 @@
+from microbit import *
+import radio
+import random
+
+radio.on()
+
+# Sends a string with a % chance of failure
+# Returns whether the message was sent succesfully
+# Send a message with error
+def sendWithError(message, error):
+    generated = random.randint(1, 100)
+    if generated > error:
+        radio.send(message)
+        return True
+    return False
 
